@@ -67,6 +67,7 @@ public class RNWebViewModule extends ReactContextBaseJavaModule implements Activ
                                         result.confirm();
                                     }
                                 })
+                                .setCancelable(false)
                                 .create();
 
         ad.show();
@@ -87,6 +88,7 @@ public class RNWebViewModule extends ReactContextBaseJavaModule implements Activ
                         result.confirm();
                     }
                 })
+                .setCancelable(false)
                 .create();
         ad.show();
     }
