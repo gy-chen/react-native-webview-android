@@ -61,7 +61,7 @@ public class RNWebViewModule extends ReactContextBaseJavaModule implements Activ
     public void showAlert(String url, String message, final JsResult result) {
         AlertDialog ad = new AlertDialog.Builder(getCurrentActivity())
                                 .setMessage(message)
-                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                .setPositiveButton("確定", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         result.confirm();
@@ -69,6 +69,25 @@ public class RNWebViewModule extends ReactContextBaseJavaModule implements Activ
                                 })
                                 .create();
 
+        ad.show();
+    }
+
+    public void showConfirm(String url, String message, final JsResult result) {
+        AlertDialog ad = new AlertDialog.Builder(getCurrentActivity())
+                .setMessage(message)
+                .setPositiveButton("確定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        result.confirm();
+                    }
+                })
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        result.confirm();
+                    }
+                })
+                .create();
         ad.show();
     }
 

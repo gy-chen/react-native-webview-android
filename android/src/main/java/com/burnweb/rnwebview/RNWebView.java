@@ -62,6 +62,12 @@ class RNWebView extends WebView implements LifecycleEventListener {
             return true;
         }
 
+        @Override
+        public boolean onJsConfirm(WebView view, String url, String message, JsResult result) {
+            getModule().showConfirm(url, message, result);
+            return true;
+        }
+
         // For Android 4.1+
         @SuppressWarnings("unused")
         public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
